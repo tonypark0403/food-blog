@@ -5,7 +5,6 @@ import Home from "../home/Home.component";
 import User from "../user/User.component";
 import Write from "../write/Write.component";
 import PageNotFound from "../not-found/PageNotFound.component";
-import "./App.style.scss";
 
 const App: React.FC = () => {
   return (
