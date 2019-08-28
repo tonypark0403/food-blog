@@ -1,0 +1,18 @@
+@import "../../common/variables.scss";
+
+.white_mode {
+  color: white !important;
+  text-decoration: none !important;
+  &:nth-child(2) {
+    flex: 1;
+  }
+}
+
+#navbar {
+  background-color: $myBlue;
+  min-height: 65px;
+  @media screen and (max-width: 500px) {
+    min-height: 70px;
+    padding-top: 6px;
+  }
+}
