@@ -1,22 +1,8 @@
 import React from "react";
 import Navbar from "../../components/navbar/Navbar.component";
-import { NavbarType } from "../../common/Types";
 import { Main } from "./Template.style";
+import navData from "../../common/TestData";
 
-const navData: NavbarType[] = [
-  {
-    name: "Food-Blog",
-    url: "/"
-  },
-  {
-    name: "",
-    url: ""
-  },
-  {
-    name: "Write",
-    url: "/write"
-  }
-];
 const Template: React.FC<any> = ({ children }) => {
   return (
     <>
