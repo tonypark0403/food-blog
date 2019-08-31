@@ -1,22 +1,18 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import { Avatar, IconButton } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
 import LoginDialog from "../login_dialog/LoginDialog.component";
 import LoginLocal from "../login_local/LoginLocal.component";
+import { UserState, StoreState } from "../../common/Types";
+import { loginUser } from "../../redux/user/user.actions";
 
 class Login extends Component<any> {
   state = {
     loginDialog: {
       open: false,
       local: false
-    },
-    user: {
-      email: "",
-      name: "",
-      address: "",
-      picture: "",
-      error: ""
     }
   };
 
@@ -28,16 +24,15 @@ class Login extends Component<any> {
     this.setState({ loginDialog: { open: false, local } });
   };
 
-  handleLogin = (email: string, password: string) => {
-    console.log("login");
-  };
-
   render() {
     const {
-      loginDialog: { open, local },
-      user: { email, picture, error }
+      loginDialog: { open, local }
     } = this.state;
-    const { handleOpen, handleClose, handleLogin } = this;
+    const {
+      user: { email, picture, error },
+      handleLogin
+    } = this.props;
+    const { handleOpen, handleClose } = this;
     const loginRender =
       email === "" ? (
         <>
@@ -60,4 +55,15 @@ class Login extends Component<any> {
   }
 }
 
-export default Login;
+const mapStateToProps = (state: StoreState) => ({
+  user: state.user
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  handleLogin: (user: UserState) => dispatch(loginUser(user))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

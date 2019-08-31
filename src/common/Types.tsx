@@ -11,6 +11,7 @@ export interface NavbarType {
 }
 
 export interface UserState {
+  [index: string]: any;
   email: string;
   name: string;
   address: string;
@@ -28,4 +29,8 @@ export interface LoginLocalProps {
   onClose: (local: boolean) => void;
   login: (email: string, password: string) => void;
   error: string;
+}
+
+export interface StoreState {
+  user: UserState;
 }

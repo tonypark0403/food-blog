@@ -1,16 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
-import "./Home.style.scss";
+import { PreLoading, Logo } from "./Home.style";
 
 const Home: React.FC<any> = props => {
   return (
     <>
       <div>
-        <div className="pre-loading">
+        <PreLoading>
           <FontAwesomeIcon className="icon" icon={faMapMarkedAlt} size="6x" />
-        </div>
-        <p className="logo">Toronto</p>
+        </PreLoading>
+        <Logo>Toronto</Logo>
       </div>
     </>
   );

@@ -1,16 +1,18 @@
-@keyframes loading {
-  0% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.5;
-  }
-}
+import styled from "styled-components";
 
-.pre_loading {
+export const PreLoading = styled.div`
+  @keyframes loading {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+
   padding: 200px 0 100px 0;
   display: flex;
   justify-content: center;
@@ -19,11 +21,11 @@
     font-size: 60px;
     animation: loading 1.5s infinite ease-in-out;
   }
-}
+`;
 
-.logo {
+export const Logo = styled.div`
   text-align: center;
   color: rgba(128, 128, 128, 0.829);
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   padding-bottom: 50px;
-}
+`;
