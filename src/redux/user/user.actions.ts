@@ -11,6 +11,11 @@ export const loginUser = (user: UserState) => ({
   payload: user
 });
 
+export const googleUser = (user: UserState) => ({
+  type: ActionTypes.GOOGLE_USER,
+  payload: user
+});
+
 export const error = (user: UserState) => ({
   type: ActionTypes.ERROR,
   payload: user

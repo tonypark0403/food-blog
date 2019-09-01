@@ -15,7 +15,11 @@ import {
   GoogleAvatar
 } from "./LoginDialog.style";
 
-const LoginDialog: React.FC<LoginDialogProps> = ({ open, onClose }) => {
+const LoginDialog: React.FC<LoginDialogProps> = ({
+  open,
+  onClose,
+  googleLogin
+}) => {
   const handleClose = (windowStatus: boolean) => {
     onClose(windowStatus);
   };
@@ -35,7 +39,7 @@ const LoginDialog: React.FC<LoginDialogProps> = ({ open, onClose }) => {
           </ListItemAvatar>
           <ListItemText primary="Facebook" />
         </ListItem>
-        <ListItem button disabled>
+        <ListItem button onClick={googleLogin}>
           <ListItemAvatar>
             <GoogleAvatar>G</GoogleAvatar>
           </ListItemAvatar>
