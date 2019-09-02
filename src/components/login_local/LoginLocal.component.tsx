@@ -18,11 +18,10 @@ class LoginLocal extends Component<LoginLocalProps, any> {
   };
 
   handleInput = (event: any) => {
-    const { name, value } = event.target;
+    const { type, value } = event.target;
+    console.log(type + ", " + value);
     this.setState({
-      user: {
-        [name]: value
-      }
+      [type]: value
     });
   };
 

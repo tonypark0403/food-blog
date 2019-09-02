@@ -1,5 +1,5 @@
 import axios from "axios";
-import { decrypting } from "../../common/cryto";
+import { decrypting } from "../../common/crypto";
 
 export default class UserService {
   token: string;
