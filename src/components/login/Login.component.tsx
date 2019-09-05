@@ -5,7 +5,7 @@ import { AccountCircle } from "@material-ui/icons";
 import { OptionLink, OptionMenuItem } from "./Login.style";
 import LoginDialog from "../login_dialog/LoginDialog.component";
 import LoginLocal from "../login_local/LoginLocal.component";
-import { UserState, StoreState } from "../../common/Types";
+import { StoreState } from "../../common/Types";
 import { loginUser } from "../../redux/user/user.actions";
 
 class Login extends Component<any> {
@@ -25,7 +25,7 @@ class Login extends Component<any> {
   };
 
   handleOpen = () => {
-    this.setState({ loginDialog: { open: true } });
+    this.setState({ loginDialog: { open: true, local: false } });
   };
 
   handleClose = (local: boolean) => {
@@ -114,7 +114,8 @@ const mapStateToProps = (state: StoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  handleLogin: (user: UserState) => dispatch(loginUser(user))
+  handleLogin: (email: string, password: string, cb: any) =>
+    dispatch(loginUser(email, password, cb))
 });
 
 export default connect(

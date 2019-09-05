@@ -19,7 +19,6 @@ class LoginLocal extends Component<LoginLocalProps, any> {
 
   handleInput = (event: any) => {
     const { type, value } = event.target;
-    console.log(type + ", " + value);
     this.setState({
       [type]: value
     });

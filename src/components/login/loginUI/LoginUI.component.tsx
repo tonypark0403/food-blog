@@ -8,15 +8,18 @@ import {
 } from "@material-ui/core";
 import { ErrorDialogContentText } from "./LoginUI.style";
 
-const LoginUI: React.FC<any> = ({
-  email,
-  password,
-  handleInput,
-  toggleRegister,
-  loginRequest,
-  error,
-  onClose
-}) => {
+const LoginUI: React.FC<any> = props => {
+  // console.log(props);
+  const {
+    email,
+    password,
+    handleInput,
+    toggleRegister,
+    loginRequest,
+    error,
+    onClose
+  }: any = props;
+  console.log("error : ", error);
   return (
     <>
       <DialogTitle>Local Login</DialogTitle>

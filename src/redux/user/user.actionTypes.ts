@@ -1,4 +1,6 @@
-export const SAVE_USER = "SAVE_USER";
-export const LOGIN_USER = "LOGIN_USER";
+export const SAVE_USER_SUCCESS = "SAVE_USER_SUCCESS";
+export const SAVE_USER_FAILURE = "SAVE_USER_FAILURE";
+export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
+export const LOGIN_USER_FAILURE = "LOGIN_USER_FAILURE";
 export const GOOGLE_USER = "GOOGLE_USER";
 export const ERROR = "ERROR";

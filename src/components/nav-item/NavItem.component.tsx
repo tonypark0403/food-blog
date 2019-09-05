@@ -4,7 +4,6 @@ import { NavWhiteElement } from "./NavItem.style";
 
 const NavItem = ({ data }: any) => {
   const { url, name } = data;
-  console.log(data);
   return (
     <NavWhiteElement to={url}>
       <Typography variant="button">{name}</Typography>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { decrypting } from "../../common/crypto";
 
-export default class UserService {
+class UserService {
   token: string;
   basicURL: string;
   port: string;
@@ -19,16 +19,17 @@ export default class UserService {
 
   getUsers(): Promise<any> {
     const hashedToken: any = localStorage.getItem("token");
-    console.log(hashedToken);
+    console.log("getting user : ", hashedToken);
     return new Promise(async (resolve, reject) => {
       try {
         const { data } = await axios.get(`${this.basicURL}/user/`, {
           headers: { Authorization: `Bearer ${this.token}` }
         });
+        console.log("user : ", data);
         resolve(data);
       } catch (err) {
         if (!err.response) {
-          reject(err.Error);
+          reject(err.error);
         } else {
           reject(err.response.data);
         }
@@ -40,13 +41,15 @@ export default class UserService {
     return new Promise(async (resolve, reject) => {
       try {
         const { data } = await axios.post(`${this.basicURL}/user/login`, {
-          Email: email,
-          Password: password
+          email,
+          password
         });
+        console.log("promise success : ", data);
         resolve(data);
       } catch (err) {
+        console.log("Err : ", err);
         if (err.response === undefined) {
-          reject(err.Error);
+          reject(err.error);
         } else {
           reject(err.response.data.error);
         }
@@ -63,15 +66,15 @@ export default class UserService {
     return new Promise(async (resolve, reject) => {
       try {
         await axios.post(`${this.basicURL}/user/register`, {
-          Email: email,
-          Address: address,
-          Name: name,
-          Password: password
+          email,
+          address,
+          name,
+          password
         });
         resolve(true);
       } catch (err) {
         if (err.response.data.error === undefined) {
-          reject(err.Error);
+          reject(err.error);
         } else {
           reject(err.response.data.error);
         }
@@ -79,3 +82,5 @@ export default class UserService {
     });
   }
 }
+
+export default UserService;

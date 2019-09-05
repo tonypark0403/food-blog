@@ -14,7 +14,6 @@ export interface UserState {
   [index: string]: any;
   email: string;
   name: string;
-  address: string;
   picture: string;
   error: string;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { StoreState, UserState } from "../../common/Types";
+import { StoreState } from "../../common/Types";
 import { loginUser } from "../../redux/user/user.actions";
 
 const User = ({ user }: StoreState) => {
@@ -32,7 +32,8 @@ const mapStateToProps = (state: StoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  handleLogin: (user: UserState) => dispatch(loginUser(user))
+  handleLogin: (email: string, password: string, cb: any) =>
+    dispatch(loginUser(email, password, cb))
 });
 
 export default connect(
