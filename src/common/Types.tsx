@@ -5,11 +5,6 @@ export interface UserType {
   error?: string;
 }
 
-export interface NavbarType {
-  name: string;
-  url: string;
-}
-
 export interface UserState {
   [index: string]: any;
   email: string;

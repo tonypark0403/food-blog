@@ -1,26 +1,37 @@
 import React from "react";
-import { Toolbar } from "@material-ui/core";
-import { HomeSharp } from "@material-ui/icons";
-import { Link } from "react-router-dom";
-import { NavbarType } from "../../common/Types";
-import NavItem from "../nav-item/NavItem.component";
+import { HomeSharp, Search, Create } from "@material-ui/icons";
 import Login from "../login/Login.component";
-import { NavBarBlue, NavWhiteElement } from "./Navbar.style";
+import {
+  FlexToolbar,
+  ItemLink,
+  NavBarBlue,
+  NavWhiteElement
+} from "./Navbar.style";
 
-const Navbar = ({ navData }: any) => {
+const Navbar: React.FC = () => {
   return (
     <NavBarBlue>
-      <Toolbar>
-        <Link to="/">
+      <FlexToolbar>
+        <ItemLink to="/">
           <NavWhiteElement>
             <HomeSharp />
           </NavWhiteElement>
-        </Link>
-        {navData.map((e: NavbarType, index: number) => (
-          <NavItem key={index} data={e} />
-        ))}
+        </ItemLink>
+        <ItemLink to="/search">
+          <NavWhiteElement>
+            <Search />
+          </NavWhiteElement>
+        </ItemLink>
+        <ItemLink to="">
+          <NavWhiteElement />
+        </ItemLink>
+        <ItemLink to="/write">
+          <NavWhiteElement>
+            <Create />
+          </NavWhiteElement>
+        </ItemLink>
         <Login />
-      </Toolbar>
+      </FlexToolbar>
     </NavBarBlue>
   );
 };

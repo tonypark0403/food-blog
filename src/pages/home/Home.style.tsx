@@ -1,25 +1,25 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const loading = keyframes`
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+`;
 
 export const PreLoading = styled.div`
-  @keyframes loading {
-    0% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.5;
-    }
-  }
-
   padding: 200px 0 100px 0;
   display: flex;
   justify-content: center;
   color: #29487d;
   .icon {
     font-size: 60px;
-    animation: loading 1.5s infinite ease-in-out;
+    animation: ${loading} 1.5s infinite ease-in-out;
   }
 `;
 
